@@ -257,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const mostrarContador = () => {
   const contador = document.getElementById("contador");
   contador 
-    ? (contador.style.display = "block") // Asegúrate de que el contador esté visible
+    ? (contador.style.display = "block") 
     : console.error("El elemento con id 'contador' no se encontró en el DOM.");
 };
 
