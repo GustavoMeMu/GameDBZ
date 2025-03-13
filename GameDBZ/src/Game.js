@@ -17,6 +17,9 @@ class Game {
   getSemilla() {
     return this.#semilla;
   }
+  setSemilla(cantidad) {
+    this.semilla = cantidad;
+  }
   getEnergia() {
     return this.#energia;
   }
@@ -32,8 +35,8 @@ class Game {
     jugador.setVida(15);
   }
   atk_especial(jugador) {
-    this.#ki -= this.#ki < 30 ? 0 : 30;
-    this.#energia -= this.#energia < 40 ? 0 : 40;
+    this.#ki -= this.#ki < 60 ? 0 : 50;
+    this.#energia -= this.#energia < 60 ? 0 : 60;
     jugador.setVida(30);
   }
   semilla_ermi() {
@@ -50,6 +53,14 @@ class Game {
   aumentar_ki() {
     this.#ki += 8;
   }
+  reiniciar() {
+    this.#vida = 100;
+    this.#energia = 90;
+    this.#ki = 80;
+    this.#semilla = 3;
+  }
+
 }
 
 export default Game;
+

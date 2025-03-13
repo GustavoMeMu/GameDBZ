@@ -6,19 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./public/img/favico.png" type="image/x-icon">
     <title>Desarrollo de Aplicaciones Fron End</title>
+    <style>
+        #contador {
+            text-align: center;
+            margin-top: 20px;
+            background-color: rgba(109, 109, 109, 0.706);
+            color: white;
+            border-radius: 10px;
+            padding: 15px;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 16px;
+        }
+    </style>
 </head>
 
 <body>
-    <audio id="background-music" src="./public/audio/background.mp3" loop autoplay></audio>
     <audio id="atk_basico_sound" src="./public/audio/atk_basico.mp3"></audio>
     <audio id="atk_especial_sound" src="./public/audio/atk_especial.mp3"></audio>
     <audio id="ermi_sound" src="./public/audio/ermi.mp3"></audio>
     <audio id="ki_sound" src="./public/audio/ki.mp3"></audio>
 
-
+    <audio id="background-music" src="./public/audio/background.mp3" loop autoplay></audio>
     <script>
         const audio = document.getElementById('background-music');
-        audio.volume = 0.001;  // Ajusta el volumen al 50%
+        audio.volume = 0.001
+            ; 
     </script>
     <div class="container mt-2">
         <div class="row justify-content-center">
@@ -55,8 +69,15 @@
                 </div>
                 <button id="btn_player1" type="button" class="btn btn-danger w-100 mt-3">Aceptar</button>
             </div>
-            <div class="col-2 text-center align-self-center  ">
+            <div class="col-2 text-center align-self-center d-none  ">
                 <h1 class="display-1 text-dark">VS</h1>
+            </div>
+            <div id="contador">
+                <h3>Historial de Combates</h3>
+                <p>Jugador 1: <span id="victorias_py1">0</span> victorias / <span id="derrotas_py1">0</span> derrotas
+                </p>
+                <p>Jugador 2: <span id="victorias_py2">0</span> victorias / <span id="derrotas_py2">0</span> derrotas
+                </p>
             </div>
             <div id="player2" class="col-md-5 text-center ">
                 <h2 class="text-primary"><i class="fa-solid fa-gamepad me-2"></i>JUGADOR 2</h2>
@@ -96,7 +117,7 @@
                             </div>
                             <div class="col-10 align-self-center">
                                 <div class="progress mb-3">
-                                    <div id="vida_py1" class="progress-bar bg-success" role="progressbar"
+                                    <div id="vida_py1" class="progress-bar bg-succcess" role="progressbar"
                                         style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                                         100%</div>
                                 </div>
@@ -146,7 +167,7 @@
                             </div>
                             <div class="col-10 align-self-center">
                                 <div class="progress mb-3">
-                                    <div id="vida_py2" class="progress-bar bg-succcess" role="progressbar"
+                                    <div id="vida_py2" class="progress-bar bg-success" role="progressbar"
                                         style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                                         100%</div>
                                 </div>
