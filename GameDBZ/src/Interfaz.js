@@ -88,12 +88,19 @@ const iniciar_player2 = () => {
     });
   }
 };
+
+let sonidoActivo1 = null;
 let seleccion1 = document.getElementById("player1_seleccion");
 seleccion1.addEventListener("click", (event) => {
   pj1 = event.target.alt == undefined ? "" : event.target.alt;
-  const sonido = new Audio(`./public/audio/${pj1}.mp3`); // Asegúrate de que el archivo de sonido tenga el nombre correcto basado en pj1
-      sonido.play();
+  if (sonidoActivo1) {
+    sonidoActivo1.pause();
+    sonidoActivo1.currentTime = 0;
+  }
 
+  const sonido = new Audio(`./public/audio/${pj1}.mp3`);
+  sonido.play();
+  sonidoActivo1 = sonido;
   seleccion1.querySelectorAll("img").forEach((temp_img) => {
     temp_img.classList.remove("btn-warning");
     temp_img.classList.add("btn-danger");
@@ -101,15 +108,21 @@ seleccion1.addEventListener("click", (event) => {
   event.target.classList.remove("btn-danger");
   event.target.classList.add("btn-warning");
 });
+
+let sonidoActivo = null;
 let seleccion2 = document.getElementById("player2_seleccion");
 seleccion2.addEventListener("click", (event) => {
   pj2 = event.target.alt == undefined ? "" : event.target.alt;
-  const sonido = new Audio(`./public/audio/${pj2}.mp3`); // Asegúrate de que el archivo de sonido tenga el nombre correcto basado en pj1
-      sonido.play();
-
+  if (sonidoActivo) {
+    sonidoActivo.pause();
+    sonidoActivo.currentTime = 0;
+  }
+  const sonido = new Audio(`./public/audio/${pj2}.mp3`);
+  sonido.play();
+  sonidoActivo = sonido;
   seleccion2.querySelectorAll("img").forEach((temp_img) => {
     temp_img.classList.remove("btn-warning");
-    temp_img.classList.add("btn-danger");
+    temp_img.classList.add("btn-primary");
   });
   event.target.classList.remove("btn-danger");
   event.target.classList.add("btn-warning");
@@ -117,10 +130,8 @@ seleccion2.addEventListener("click", (event) => {
 
 btn_player1.addEventListener("click", () => {
   let user_name1 = document.getElementById("user_name1").value;
-  let audio = new Audio('./public/audio/SELECCION.mp3'); // Cargar el sonido
+  let audio = new Audio('./public/audio/SELECCION.mp3'); 
   
-  // Reproducir el sonido
-  // audio.play();
   if (user_name1 == "") {
     Swal.fire({
       title: "Advertencia Jugador 1",
@@ -671,4 +682,36 @@ document.getElementById("btn_ki_py2").addEventListener("click", () => {
   document.getElementById("btn_esp_py1").disabled = false;
   document.getElementById("btn_ermi_py1").disabled = false;
   document.getElementById("btn_ki_py1").disabled = false;
+});
+
+function playSound(soundId) {
+    const sound = document.getElementById(soundId);
+    sound.currentTime = 0; 
+    sound.play();
+}
+
+document.getElementById('btn_atk_py1').addEventListener('click', function() {
+    playSound('atk_basico_sound');
+});
+document.getElementById('btn_esp_py1').addEventListener('click', function() {
+    playSound('atk_especial_sound');
+});
+document.getElementById('btn_ermi_py1').addEventListener('click', function() {
+    playSound('ermi_sound');
+});
+document.getElementById('btn_ki_py1').addEventListener('click', function() {
+    playSound('ki_sound');
+});
+
+document.getElementById('btn_atk_py2').addEventListener('click', function() {
+    playSound('atk_basico_sound');
+});
+document.getElementById('btn_esp_py2').addEventListener('click', function() {
+    playSound('atk_especial_sound');
+});
+document.getElementById('btn_ermi_py2').addEventListener('click', function() {
+    playSound('ermi_sound');
+});
+document.getElementById('btn_ki_py2').addEventListener('click', function() {
+    playSound('ki_sound');
 });

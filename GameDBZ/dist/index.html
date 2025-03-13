@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./public/img/favico.png" type="image/x-icon">
     <title>Desarrollo de Aplicaciones Fron End</title>
 </head>
+
 <body>
     <audio id="background-music" src="./public/audio/background.mp3" loop autoplay></audio>
-    
-<script>
-    const audio = document.getElementById('background-music');
-    audio.volume = 0.5;  // Ajusta el volumen al 50%
-  </script>
+    <audio id="atk_basico_sound" src="./public/audio/atk_basico.mp3"></audio>
+    <audio id="atk_especial_sound" src="./public/audio/atk_especial.mp3"></audio>
+    <audio id="ermi_sound" src="./public/audio/ermi.mp3"></audio>
+    <audio id="ki_sound" src="./public/audio/ki.mp3"></audio>
+
+
+    <script>
+        const audio = document.getElementById('background-music');
+        audio.volume = 0.001;  // Ajusta el volumen al 50%
+    </script>
     <div class="container mt-2">
         <div class="row justify-content-center">
             <div class="col-12 text-center">
-                <h1 class="display-4 text-danger"><i class="fa-brands fa-skyatlas me-2"></i>KAME HOUSE - GAME<i class="fa-brands fa-battle-net ml-2"></i></h1>
+                <h1 class="display-4 text-danger"><i class="fa-brands fa-skyatlas me-2"></i>KAME HOUSE - GAME<i
+                        class="fa-brands fa-battle-net ml-2"></i></h1>
                 <hr class="text-danger">
             </div>
             <div id="player1" class="col-md-5 text-center ">
@@ -24,22 +32,27 @@
                 <hr>
                 <div class="form-floating mb-3">
                     <input id="user_name1" class="form-control" type="text" placeholder="Nombre usuario">
-                    <label class="text-danger" for="user_name"><i class="fa-solid fa-gamepad me-2"></i>Nombre usuario</label>
+                    <label class="text-danger" for="user_name"><i class="fa-solid fa-gamepad me-2"></i>Nombre
+                        usuario</label>
                 </div>
                 <div id="player1_seleccion" class="row justify-content-center">
                     <div class="col-md-3">
-                            <img class="btn btn-danger rounded-circle mt-2" src="./public/img/seleccion/sc01.webp" width="100%" alt="Vegito">
+                        <img class="btn btn-danger rounded-circle mt-2" src="./public/img/seleccion/sc01.webp"
+                            width="100%" alt="Vegito">
                     </div>
                     <div class="col-md-3">
-                            <img class=" btn btn-danger rounded-circle mt-2" src="./public/img/seleccion/sc03.webp" width="100%" alt="Trunks">
+                        <img class=" btn btn-danger rounded-circle mt-2" src="./public/img/seleccion/sc03.webp"
+                            width="100%" alt="Trunks">
                     </div>
                     <div class="col-md-3">
-                            <img class="btn btn-danger rounded-circle mt-2" src="./public/img/seleccion/sc05.webp" width="100%" alt="Goku">
+                        <img class="btn btn-danger rounded-circle mt-2" src="./public/img/seleccion/sc05.webp"
+                            width="100%" alt="Goku">
                     </div>
                     <div class="col-md-3">
-                            <img class="btn btn-danger rounded-circle mt-2" src="./public/img/seleccion/sc06.webp" width="100%" alt="Gohan">
+                        <img class="btn btn-danger rounded-circle mt-2" src="./public/img/seleccion/sc06.webp"
+                            width="100%" alt="Gohan">
                     </div>
-                </div> 
+                </div>
                 <button id="btn_player1" type="button" class="btn btn-danger w-100 mt-3">Aceptar</button>
             </div>
             <div class="col-2 text-center align-self-center  ">
@@ -50,22 +63,27 @@
                 <hr>
                 <div class="form-floating mb-3">
                     <input id="user_name2" class="form-control" type="text" placeholder="Nombre usuario">
-                    <label class="text-primary" for="user_name"><i class="fa-solid fa-gamepad me-2"></i>Nombre usuario</label>
+                    <label class="text-primary" for="user_name"><i class="fa-solid fa-gamepad me-2"></i>Nombre
+                        usuario</label>
                 </div>
                 <div id="player2_seleccion" class="row justify-content-center">
                     <div class="col-md-3">
-                            <img class="btn btn-primary rounded-circle mt-2" src="./public/img/seleccion/sc02.webp" width="100%" alt="Veguetta">
+                        <img class="btn btn-primary rounded-circle mt-2" src="./public/img/seleccion/sc02.webp"
+                            width="100%" alt="Veguetta">
                     </div>
                     <div class="col-md-3">
-                            <img class=" btn btn-primary rounded-circle mt-2" src="./public/img/seleccion/sc04.webp" width="100%" alt="Pikoro">
+                        <img class=" btn btn-primary rounded-circle mt-2" src="./public/img/seleccion/sc04.webp"
+                            width="100%" alt="Pikoro">
                     </div>
                     <div class="col-md-3">
-                            <img class="btn btn-primary rounded-circle mt-2" src="./public/img/seleccion/sc07.webp" width="100%" alt="Gogeta">
+                        <img class="btn btn-primary rounded-circle mt-2" src="./public/img/seleccion/sc07.webp"
+                            width="100%" alt="Gogeta">
                     </div>
                     <div class="col-md-3">
-                            <img class="btn btn-primary rounded-circle mt-2" src="./public/img/seleccion/sc08.webp" width="100%" alt="Cell">
+                        <img class="btn btn-primary rounded-circle mt-2" src="./public/img/seleccion/sc08.webp"
+                            width="100%" alt="Cell">
                     </div>
-                </div> 
+                </div>
                 <button id="btn_player2" type="button" class="btn btn-primary w-100 mt-3">Aceptar</button>
             </div>
             <div id="iniciar_juego" class="row d-none">
@@ -78,7 +96,9 @@
                             </div>
                             <div class="col-10 align-self-center">
                                 <div class="progress mb-3">
-                                    <div id="vida_py1" class="progress-bar bg-succcess" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                                    <div id="vida_py1" class="progress-bar bg-success" role="progressbar"
+                                        style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                        100%</div>
                                 </div>
                             </div>
                         </div>
@@ -88,7 +108,9 @@
                             </div>
                             <div class="col-10">
                                 <div class="progress mb-3">
-                                    <div id="ki_py1" class="progress-bar bg-info" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                                    <div id="ki_py1" class="progress-bar bg-info" role="progressbar"
+                                        style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                        100%</div>
                                 </div>
                             </div>
                         </div>
@@ -98,7 +120,9 @@
                             </div>
                             <div class="col-10">
                                 <div class="progress mb-3">
-                                    <div id="energia_py1" class="progress-bar bg-warning" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                                    <div id="energia_py1" class="progress-bar bg-warning" role="progressbar"
+                                        style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                        100%</div>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +130,8 @@
                     <img id="avatar1" class="mx-auto d-block" src="./public/img/Goku/base.png" width="40%">
                     <button id="btn_atk_py1" type="button" class="btn btn-primary mb-3">ATK Basico</button>
                     <button id="btn_esp_py1" type="button" class="btn btn-danger mb-3">ATK Especial</button>
-                    <button id="btn_ermi_py1" type="button" class="btn btn-success mb-3">S.Ermitaño <span id="semillas_py1" class="badge bg-warning">3</span></button>
+                    <button id="btn_ermi_py1" type="button" class="btn btn-success mb-3">S.Ermitaño <span
+                            id="semillas_py1" class="badge bg-warning">3</span></button>
                     <button id="btn_ki_py1" type="button" class="btn btn-warning mb-3">Regenerar KI</button>
                 </div>
                 <div class="col-2 text-center align-self-center  ">
@@ -121,7 +146,9 @@
                             </div>
                             <div class="col-10 align-self-center">
                                 <div class="progress mb-3">
-                                    <div id="vida_py2" class="progress-bar bg-succcess" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                                    <div id="vida_py2" class="progress-bar bg-succcess" role="progressbar"
+                                        style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                        100%</div>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +158,9 @@
                             </div>
                             <div class="col-10">
                                 <div class="progress mb-3">
-                                    <div id="ki_py2" class="progress-bar bg-info" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                                    <div id="ki_py2" class="progress-bar bg-info" role="progressbar"
+                                        style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                        100%</div>
                                 </div>
                             </div>
                         </div>
@@ -141,20 +170,24 @@
                             </div>
                             <div class="col-10">
                                 <div class="progress mb-3">
-                                    <div id="energia_py2" class="progress-bar bg-warning" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                                    <div id="energia_py2" class="progress-bar bg-warning" role="progressbar"
+                                        style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                        100%</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <img id="avatar2" class="mx-auto d-block" src="./public/img/Veguetta/base.png" width="40%">
-                    <button  id="btn_atk_py2" type="button" class="btn btn-primary mb-3" disabled>ATK Basico</button>
-                    <button  id="btn_esp_py2" type="button" class="btn btn-danger mb-3" disabled>ATK Especial</button>
-                    <button  id="btn_ermi_py2" type="button" class="btn btn-success mb-3" disabled>S.Ermitaño <span id="semillas_py2" class="badge bg-warning">3</span></button>
-                    <button  id="btn_ki_py2" type="button" class="btn btn-warning mb-3" disabled>Regenerar KI</button>
+                    <button id="btn_atk_py2" type="button" class="btn btn-primary mb-3" disabled>ATK Basico</button>
+                    <button id="btn_esp_py2" type="button" class="btn btn-danger mb-3" disabled>ATK Especial</button>
+                    <button id="btn_ermi_py2" type="button" class="btn btn-success mb-3" disabled>S.Ermitaño <span
+                            id="semillas_py2" class="badge bg-warning">3</span></button>
+                    <button id="btn_ki_py2" type="button" class="btn btn-warning mb-3" disabled>Regenerar KI</button>
                 </div>
             </div>
         </div>
     </div>
     <script src="./bundle.js"></script>
 </body>
+
 </html>
